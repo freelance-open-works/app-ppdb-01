@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Api\DistanceController;
+use App\Http\Controllers\Api\GeocodingController;
 use App\Http\Controllers\Default\Api\_SelectTableController;
 use App\Http\Controllers\Default\FileController;
 use App\Http\Middleware\JwtCustomApiVerification;
@@ -23,5 +25,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::middleware(JwtCustomApiVerification::class)->group(function () {
     Route::get('/_select/{table}', _SelectTableController::class)->name('api.select.table');
+    Route::get('/geocoding', GeocodingController::class)->name('api.geocoding');
+    Route::post('/distance', DistanceController::class)->name('api.distance');
     Route::post('files', [FileController::class, 'store'])->name('api.file.store');
 });

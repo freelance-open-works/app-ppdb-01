@@ -7,6 +7,8 @@ import Card from '@/Components/DaisyUI/Card'
 import TextInput from '@/Components/DaisyUI/TextInput'
 import Button from '@/Components/DaisyUI/Button'
 import FormFile from '@/Components/DaisyUI/FormFile'
+import { useModalState } from '@/hooks'
+import MapModal from '@/Components/Common/MapModal'
 
 const extractValue = (set, key) => {
     const find = set.find((s) => s.key === key)
@@ -26,7 +28,16 @@ export default function Setting(props) {
     const { data, setData, post, processing, errors } = useForm({
         app_name: extractValue(setting, 'app_name'),
         app_logo: '',
+        school_address: extractValue(setting, 'school_address'),
+        school_coordinate: extractValue(setting, 'school_coordinate'),
+        school_max_distance: extractValue(setting, 'school_max_distance'),
     })
+
+    const mapModalState = useModalState()
+
+    const handleSetCoordinate = (position) => {
+        setData('school_coordinate', `${position[0]}|${position[1]}`)
+    }
 
     const handleOnChange = (event) => {
         setData(
@@ -56,11 +67,28 @@ export default function Setting(props) {
                         name="app_name"
                         value={data.app_name}
                         onChange={handleOnChange}
-                        label="App Name"
+                        label="Nama"
                         error={errors.app_name}
                     />
+                    <TextInput
+                        name="school_address"
+                        value={data.school_address}
+                        onChange={handleOnChange}
+                        label="Alamat"
+                        error={errors.school_address}
+                    />
+                    <div className="underline" onClick={mapModalState.toggle}>
+                        pilih koordinat
+                    </div>
+                    <TextInput
+                        name="school_max_distance"
+                        value={data.school_max_distance}
+                        onChange={handleOnChange}
+                        label="Jarak Maksimal (KM)"
+                        error={errors.school_max_distance}
+                    />
                     <FormFile
-                        label={'App Logo'}
+                        label={'Logo'}
                         onChange={(file_path) => setData('app_logo', file_path)}
                         error={errors.app_logo}
                         url={app_logo_url}
@@ -77,6 +105,11 @@ export default function Setting(props) {
                     </div>
                 </Card>
             </div>
+            <MapModal
+                modalState={mapModalState}
+                handleOk={handleSetCoordinate}
+                _position={data.school_coordinate.split('|')}
+            />
         </AuthenticatedLayout>
     )
 }

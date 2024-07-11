@@ -21,7 +21,8 @@ class DefaultSeeder extends Seeder
             ['id' => Str::ulid(), 'key' => 'app_name', 'value' => 'PPDB - SMP N 1 Anjir Muara', 'type' => 'text'],
             ['id' => Str::ulid(), 'key' => 'app_logo', 'value' => '', 'type' => 'image'],
             ['id' => Str::ulid(), 'key' => 'school_address', 'value' => '', 'type' => 'text'],
-            ['id' => Str::ulid(), 'key' => 'school_coordinate', 'value' => '', 'type' => 'text'],
+            ['id' => Str::ulid(), 'key' => 'school_coordinate', 'value' => '-2.847033238005219|114.27978515625001', 'type' => 'text'],
+            ['id' => Str::ulid(), 'key' => 'school_max_distance', 'value' => '25', 'type' => 'text'],
             ['id' => Str::ulid(), 'key' => 'page_registration_requirements', 'value' => '', 'text' => ''],
         ];
 

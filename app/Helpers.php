@@ -18,3 +18,34 @@ if (!function_exists('splitPascalCase')) {
         return $word;
     }
 }
+
+if (!function_exists('calculateDistance')) {
+    function calculateDistance(
+        float $latitudeFrom,
+        float $longitudeFrom,
+        float $latitudeTo,
+        float $longitudeTo,
+        string $unit = 'K'
+    ): float {
+        $earthRadius = [
+            'K' => 6371,  // Earth's radius in kilometers
+            'M' => 3959,  // Earth's radius in miles
+            'N' => 3440,  // Earth's radius in nautical miles
+        ];
+
+        $latFrom = deg2rad($latitudeFrom);
+        $lonFrom = deg2rad($longitudeFrom);
+        $latTo = deg2rad($latitudeTo);
+        $lonTo = deg2rad($longitudeTo);
+
+        $latDelta = $latTo - $latFrom;
+        $lonDelta = $lonTo - $lonFrom;
+
+        $a = sin($latDelta / 2) ** 2 + cos($latFrom) * cos($latTo) * sin($lonDelta / 2) ** 2;
+        $c = 2 * atan2(sqrt($a), sqrt(1 - $a));
+
+        $distance = $earthRadius[$unit] * $c;
+
+        return $distance;
+    }
+}

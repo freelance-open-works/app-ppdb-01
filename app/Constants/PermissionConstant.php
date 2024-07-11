@@ -22,6 +22,11 @@ class PermissionConstant
 
 
         // #Add New Permission Below!
-
+        ['label' => 'Edit Page Persyaratan', 'name' => 'view-page'],
+        ['label' => 'Edit Page Pengumuman', 'name' => 'view-publication'],
+        ['label' => 'Delete Pendaftaran', 'name' => 'delete-registrant'],
+        ['label' => 'Update Pendaftaran', 'name' => 'update-registrant'],
+        ['label' => 'Create Pendaftaran', 'name' => 'create-registrant'],
+        ['label' => 'View Pendaftaran', 'name' => 'view-registrant'],
     ];
 }

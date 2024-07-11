@@ -29,14 +29,18 @@ export default function Dashboard(props) {
                     </div>
                     <div className="stats shadow flex-1">
                         <div className="stat">
-                            <div className="stat-title">Empty</div>
-                            <div className="stat-value text-primary">0</div>
+                            <div className="stat-title">Pendaftar</div>
+                            <div className="stat-value text-primary">
+                                {props.registrant}
+                            </div>
                         </div>
                     </div>
                     <div className="stats shadow flex-1">
                         <div className="stat">
-                            <div className="stat-title">Empty</div>
-                            <div className="stat-value text-primary">0</div>
+                            <div className="stat-title">Diterima</div>
+                            <div className="stat-value text-primary">
+                                {props.registrant_pass}
+                            </div>
                         </div>
                     </div>
                 </div>

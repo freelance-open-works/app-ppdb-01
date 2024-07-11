@@ -12,7 +12,7 @@ class GeocodingServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->singleton(GeocodingService::class, function ($app) {
+        $this->app->singleton('geo', function ($app) {
             return new GeocodingService(config('services.opencage.key'));
         });
     }

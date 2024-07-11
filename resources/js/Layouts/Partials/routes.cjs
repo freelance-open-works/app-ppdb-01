@@ -1,4 +1,10 @@
-import { HiChartPie, HiUser, HiCog, HiGlobeAlt } from 'react-icons/hi'
+import {
+    HiChartPie,
+    HiUser,
+    HiCog,
+    HiGlobeAlt,
+    HiViewList,
+} from 'react-icons/hi'
 
 export default [
     {
@@ -8,6 +14,62 @@ export default [
         route: route('dashboard'),
         active: 'dashboard',
         permission: 'view-dashboard',
+    },
+    {
+        name: 'Pendaftaran',
+        show: true,
+        icon: HiViewList,
+        route: route('registrants.create'),
+        active: 'registrants.create',
+        permission: 'create-registrant',
+    },
+    {
+        name: 'Data Pendaftar',
+        show: true,
+        icon: HiViewList,
+        route: route('registrants.index'),
+        active: 'registrants.index',
+        permission: 'view-registrant',
+    },
+    {
+        name: 'Upload Pendaftar diterima',
+        show: true,
+        icon: HiViewList,
+        route: route('registrants.index'),
+        active: 'registrants.xxx',
+        permission: 'view-registrant',
+    },
+    {
+        name: 'Laporan Pendaftar diterima',
+        show: true,
+        icon: HiViewList,
+        route: route('daftar-diterima', { pass: 'pass' }),
+        active: 'daftar-diterima',
+        permission: 'view-registrant',
+    },
+    {
+        name: 'Edit Halaman Persyaratan',
+        show: true,
+        icon: HiViewList,
+        route: route('registrants.index'),
+        active: 'registrants.xxx',
+        permission: 'view-registrant',
+    },
+    {
+        name: 'Halaman Persyaratan',
+        show: true,
+        icon: HiGlobeAlt,
+        route: route('registrants.index'),
+        active: 'registrants.xxx',
+        permission: 'view-registrant',
+    },
+    {
+        name: 'Halaman Pengumuman',
+        show: true,
+        icon: HiGlobeAlt,
+        route: route('registrants.index'),
+        active: 'registrants.xxx',
+        permission: 'view-registrant',
     },
     {
         name: 'User',

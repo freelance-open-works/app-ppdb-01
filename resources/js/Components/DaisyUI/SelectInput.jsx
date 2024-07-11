@@ -13,12 +13,8 @@ export const Select = ({
     children,
 }) => {
     return (
-        <>
-            {label !== '' && (
-                <div className="label">
-                    <span className="label-text">{label}</span>
-                </div>
-            )}
+        <div className="form-control">
+            {label !== '' && <span className="label-text">{label}</span>}
             <select
                 className={`select select-bordered w-full ${
                     error ? 'select-error' : ''
@@ -34,6 +30,6 @@ export const Select = ({
                     {error}
                 </p>
             )}
-        </>
+        </div>
     )
 }

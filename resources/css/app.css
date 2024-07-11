@@ -93,3 +93,8 @@
 :root {
     --padding-card: 20px;
 }
+
+.leaflet-container {
+    /* width: 400px; */
+    height: 400px;
+}

@@ -31,7 +31,9 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->string('number_kis_pkh')->nullable();
             $table->string('description')->nullable();
-            $table->string('override_status')->nullable();
+            $table->string('coordinate')->nullable();
+            $table->string('distance')->nullable();
+            $table->string('status')->nullable();
             //
             $table->timestamps();
             $table->softDeletes();

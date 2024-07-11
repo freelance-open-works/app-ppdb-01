@@ -28,7 +28,7 @@ export default function Guest({ children }) {
                 <div className="p-4 md:p-5">
                     <div className="flex justify-center py-4">
                         <Link href="/">
-                            <ApplicationLogo className="w-auto h-20 fill-current text-base-content text-5xl font-bold" />
+                            <ApplicationLogo className="w-auto h-20 fill-current text-base-content text-5xl font-bold text-center" />
                         </Link>
                     </div>
                     {children}
