@@ -54,6 +54,7 @@ export default function SidebarNav({ user, show, setShow }) {
     const {
         props: {
             app: { app_name },
+            logo,
         },
     } = usePage()
     const menus = routes.filter((item) => {
@@ -78,7 +79,7 @@ export default function SidebarNav({ user, show, setShow }) {
         <div
             className={`${
                 show ? 'block' : 'hidden'
-            } flex flex-col h-screen overflow-y-auto transition-all duration-300 transform fixed top-0 start-0 bottom-0 z-[50] w-full md:w-64 bg-base-200 md:block md:translate-x-0 md:end-auto md:bottom-0 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-slate-700 dark:[&::-webkit-scrollbar-thumb]:bg-slate-500 `}
+            } flex flex-col h-screen overflow-y-auto transition-all duration-300 transform fixed top-0 start-0 bottom-0 z-[50] w-full md:w-64 bg-blue-200 md:block md:translate-x-0 md:end-auto md:bottom-0 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-slate-700 dark:[&::-webkit-scrollbar-thumb]:bg-slate-500 `}
         >
             <div className="flex flex-col justify-between flex-1">
                 <div className="">
@@ -97,6 +98,9 @@ export default function SidebarNav({ user, show, setShow }) {
                         >
                             <HiOutlineX className="w-5 h-5" />
                         </div>
+                    </div>
+                    <div className="w-full">
+                        <img src={logo} className="w-40 mx-auto" />
                     </div>
                     <nav className="w-full">
                         <ul className="menu rounded-box">

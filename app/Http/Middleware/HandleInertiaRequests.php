@@ -42,6 +42,7 @@ class HandleInertiaRequests extends Middleware
                 'message' => fn () => $request->session()->get('message'),
             ],
             'app' => Setting::getByKeys(['app_name', 'app_logo']),
+            'logo' => asset('files/tutwuri.png')
         ]);
     }
 }

@@ -28,13 +28,12 @@ class PageController extends Controller
             ->with('message', ['type' => 'success', 'message' => 'Item has beed updated']);
     }
 
-    public function persyaratan() 
+    public function persyaratan()
     {
-        return inertia('Persyaratan', ['content' => Setting::getByKey('page_registration_requirements')]);
-    }
-
-    public function pengumuman()
-    {
-        return inertia('Pengumuman', ['files' => File::where('dir', 'upload')->orderBy('created_at', 'desc')->limit(5)->get() ]);
+        return inertia('Persyaratan', [
+            'content' => Setting::getByKey('page_registration_requirements'),
+            'files' => File::where('dir', 'upload')->orderBy('created_at', 'desc')->limit(5)->get(),
+            'logo_pengumuman' => asset('files/pengumuman.jpeg')
+        ]);
     }
 }

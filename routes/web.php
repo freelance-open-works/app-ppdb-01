@@ -16,7 +16,6 @@ Route::get('/', function () {
 });
 
 Route::get('files/{file}', [FileController::class, 'show'])->name('file.show');
-Route::get('pages/pengumuman', [PageController::class, 'pengumuman'])->name('pages.pengumuman');
 Route::get('pages/persyaratan', [PageController::class, 'persyaratan'])->name('pages.persyaratan');
 
 Route::middleware(['auth'])->group(function () {

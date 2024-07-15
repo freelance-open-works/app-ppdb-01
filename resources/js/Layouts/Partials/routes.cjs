@@ -64,14 +64,6 @@ export default [
         permission: 'view-page',
     },
     {
-        name: 'Halaman Pengumuman',
-        show: true,
-        icon: HiGlobeAlt,
-        route: route('pages.pengumuman'),
-        active: 'pages.pengumuman',
-        permission: 'view-page',
-    },
-    {
         name: 'User',
         show: true,
         icon: HiUser,
