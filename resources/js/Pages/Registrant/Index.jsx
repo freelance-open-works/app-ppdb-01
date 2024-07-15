@@ -64,11 +64,18 @@ export default function Index(props) {
                             </Link>
                         </HasPermission>
 
-                        <div className="flex items-center">
+                        <div className="flex flex-col md:flex-row items-center gap-2">
+                            <div>
                             <SearchInput
                                 onChange={(e) => setSearch(e.target.value)}
                                 value={search}
                             />
+                            </div>
+                            <div>
+                                <a href={route('registrants.export', params)} target='_blank'>
+                                <Button type="secondary">Export</Button>
+                                </a>
+                            </div>
                         </div>
                     </div>
                     <div className="overflow-x-auto">

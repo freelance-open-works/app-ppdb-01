@@ -17,13 +17,10 @@ class PermissionConstant
         ['label' => 'View Role', 'name' => 'view-role'],
         ['label' => 'Delete Role', 'name' => 'delete-role'],
 
-        ['label' => 'View Setting', 'name' => 'view-setting'],
-        ['label' => 'View Shortlink', 'name' => 'view-shortlink'],
-
-
         // #Add New Permission Below!
         ['label' => 'Edit Page Persyaratan', 'name' => 'view-page'],
         ['label' => 'Edit Page Pengumuman', 'name' => 'view-publication'],
+
         ['label' => 'Delete Pendaftaran', 'name' => 'delete-registrant'],
         ['label' => 'Update Pendaftaran', 'name' => 'update-registrant'],
         ['label' => 'Create Pendaftaran', 'name' => 'create-registrant'],

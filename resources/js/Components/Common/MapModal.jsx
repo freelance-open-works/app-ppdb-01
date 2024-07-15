@@ -3,9 +3,11 @@ import {
     TileLayer,
     Marker,
     Popup,
-    useMapEvents,
     useMap,
 } from 'react-leaflet'
+import 'leaflet/dist/leaflet.css'
+import { Icon } from 'leaflet'
+
 
 import Modal from '../DaisyUI/Modal'
 import SearchInput from '../DaisyUI/SearchInput'
@@ -15,6 +17,14 @@ import axios from 'axios'
 import { showToast } from '@/utils'
 import Button from '../DaisyUI/Button'
 import { isEmpty } from 'lodash'
+
+const corIcon = new Icon({
+    iconUrl: 'https://unpkg.com/leaflet@1.9.3/dist/images/marker-icon.png',
+    iconSize: [35, 35], // size of the icon
+    iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
+    popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
+
+})
 
 export default function MapModal(props) {
     const {
@@ -89,7 +99,7 @@ export default function MapModal(props) {
                             setPosition={setPosition}
                         />
                         <TileLayer
-                            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                            attribution='&copy; OpenStreetMap contributors'
                             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                         />
                     </MapContainer>
@@ -130,6 +140,7 @@ function DraggableMarker({ position, setPosition }) {
             eventHandlers={eventHandlers}
             position={position}
             ref={markerRef}
+            icon={corIcon}
         >
             <Popup minWidth={90}></Popup>
         </Marker>

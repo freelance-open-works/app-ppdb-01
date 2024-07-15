@@ -7,10 +7,10 @@ import TextInput from '@/Components/DaisyUI/TextInput'
 import Button from '@/Components/DaisyUI/Button'
 
 export default function Page(props) {
-    const { page } = props
+    const { content } = props
 
     const { data, setData, post, processing, errors } = useForm({
-        name: page?.name,
+        content: content,
     })
 
     const handleOnChange = (event) => {
@@ -29,21 +29,27 @@ export default function Page(props) {
     }
 
     return (
-        <AuthenticatedLayout page={'System'} action={'Page'}>
-            <Head title="Page" />
+        <AuthenticatedLayout page={'System'} action={'Halaman Persyaratan'}>
+            <Head title="Halaman Persyaratan" />
 
             <div>
                 <Card>
                     <div className="text-xl font-bold mb-4 text-base-content">
-                        Page
+                        Halaman Persyaratan
                     </div>
-                    <TextInput
-                        name="name"
-                        value={data.name}
+                    <textarea 
+                        className="textarea textarea-bordered"
+                        name="content"
+                        value={data.content}
+                        rows={8}
                         onChange={handleOnChange}
-                        label="Name"
-                        error={errors.name}
                     />
+                    {errors.content && (
+                        <div className='alert alert-error'>
+                            {errors.content}
+                        </div>
+                    )}
+                    
                     <div className="mt-4">
                         <Button
                             onClick={handleSubmit}

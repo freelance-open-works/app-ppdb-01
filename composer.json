@@ -16,12 +16,12 @@
         "laravel/framework": "^11.15.0",
         "laravel/prompts": "^0.1.24",
         "laravel/tinker": "^2.9.0",
+        "maatwebsite/excel": "^3.1",
         "react/async": "^4.3",
         "spatie/async": "^1.6.1",
         "tightenco/ziggy": "^1.8.2"
     },
     "require-dev": {
-        "beyondcode/laravel-dump-server": "dev-l11-compatibility",
         "fakerphp/faker": "^1.23.1",
         "laravel/breeze": "^2.1.2",
         "laravel/pint": "^1.16.2",
@@ -75,12 +75,6 @@
             "php-http/discovery": true
         }
     },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/laravel-shift/laravel-dump-server.git"
-        }
-    ],
     "minimum-stability": "stable",
     "prefer-stable": true
 }

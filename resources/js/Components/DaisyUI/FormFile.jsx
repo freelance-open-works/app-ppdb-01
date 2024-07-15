@@ -12,6 +12,8 @@ export default function FormFile({
     help,
     url,
     filemimes = '',
+    dir = '',
+    callback
 }) {
     const {
         props: { auth },
@@ -38,6 +40,7 @@ export default function FormFile({
         const formData = new FormData()
         formData.append('filemimes', filemimes)
         formData.append('file', e.target.files[0])
+        formData.append('dir_name', dir)
 
         axios
             .post(route('api.file.store'), formData, {
@@ -63,6 +66,9 @@ export default function FormFile({
             })
             .finally(() => {
                 setLoading(false)
+                if (callback) {
+                    callback()
+                }
             })
     }
 

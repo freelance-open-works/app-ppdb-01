@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\RegistrantExport;
 use App\Models\Registrant;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Inertia\Response;
+use Maatwebsite\Excel\Facades\Excel;
 
 class RegistrantController extends Controller
 {
@@ -145,5 +147,24 @@ class RegistrantController extends Controller
 
         return redirect()->route('registrants.index')
             ->with('message', ['type' => 'success', 'message' => 'Item has beed deleted']);
+    }
+
+    public function export(Request $request) 
+    {
+        $query = Registrant::query();
+
+        if ($request->q != '') {
+            $query->where('name', 'like', "%{$request->q}%");
+        }
+
+        if ($request->pass != '') {
+            $query->where('status', REgistrant::STATUS_PASS);
+        }
+
+        $query->orderBy('created_at', 'desc');
+
+        $name = "pendaftar-" . now()->format('d-m-Y') . ".xlsx";
+
+        return Excel::download(new RegistrantExport($query->get()), $name);
     }
 }

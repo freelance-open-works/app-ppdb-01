@@ -40,6 +40,7 @@ class FileController extends Controller
             'hash_name' => $file->hashName(),
             'name' => $file->getClientOriginalName(),
             'type' => File::FILE,
+            'dir' => $request->dir_name ?? null,
         ]);
 
         return response()->json([
