@@ -33,7 +33,7 @@ class PageController extends Controller
         return inertia('Persyaratan', [
             'content' => Setting::getByKey('page_registration_requirements'),
             'files' => File::where('dir', 'upload')->orderBy('created_at', 'desc')->limit(5)->get(),
-            'logo_pengumuman' => asset('files/pengumuman.jpeg')
+            'logo_pengumuman' => asset('files/pengumuman.png')
         ]);
     }
 }
