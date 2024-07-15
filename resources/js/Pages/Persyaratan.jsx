@@ -3,6 +3,8 @@ import { Head, Link } from '@inertiajs/react'
 import Button from '@/Components/DaisyUI/Button'
 import Card from '@/Components/DaisyUI/Card'
 import ApplicationLogo from '@/Components/ApplicationLogo'
+import { formatDateTime } from '@/utils'
+import { HiDownload } from 'react-icons/hi'
 
 export default function Persyaratan({ content, files, logo_pengumuman }) {
     return (
@@ -26,6 +28,7 @@ export default function Persyaratan({ content, files, logo_pengumuman }) {
                                 value={content}
                                 readOnly={true}
                                 rows={10}
+                                style={{ minHeight: '340px' }}
                                 className="textarea"
                             />
                         </div>
